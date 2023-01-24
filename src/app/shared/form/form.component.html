@@ -1,0 +1,96 @@
+<!-- una app con menu que muestre differentes componentes de material -->
+<style>
+  .container--narrow {
+    max-width: 20rem;
+    margin-inline: auto;
+    margin-top: 3rem;
+    background-color: #edeeef;
+    padding: 2rem;
+    border-radius: .5rem;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  form button {
+    transition: .2s all ease;
+  }
+
+  form:invalid button {
+    background-color: red;
+  }
+
+  form:valid button {
+    background-color: greenyellow;
+  }
+
+  mat-slide-toggle {
+    margin: 1rem 0;
+  }
+</style>
+
+<section class="container--narrow">
+  <!-- <form> -->
+  <!-- [formGroup]="registroForm"  (ngSubmit)="" -->
+  <h2>CALCULADORA</h2>
+  <div class="full">
+    <mat-form-field appearance="fill">
+      <mat-label>Ingrese un valor A</mat-label>
+      <input matInput [(ngModel)]="valorA" required type="number">
+      <!-- <mat-error *ngIf="valorA?.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+  </div>
+  <div class="full">
+    <mat-form-field appearance="fill">
+      <mat-label>Ingrese un valor B</mat-label>
+      <input matInput [(ngModel)]="valorB" required type="number">
+      <!-- <mat-error *ngIf="valorB?.invalid">{{getErrorMessage()}}</mat-error>  -->
+    </mat-form-field>
+  </div>
+  <!-- <mat-slide-toggle>Slide me!</mat-slide-toggle> -->
+  <div>
+    <mat-slide-toggle name="sumar" [(ngModel)]="sumar">SUMAR</mat-slide-toggle>
+  </div>
+  <div>
+    <mat-slide-toggle name="restar" [(ngModel)]="restar">RESTAR</mat-slide-toggle>
+  </div>
+  <div>
+    <mat-slide-toggle name="multiplicar" [(ngModel)]="multiplicar">MULTIPLICAR</mat-slide-toggle>
+  </div>
+  <div>
+    <mat-slide-toggle name="dividir" [(ngModel)]="dividir">DIVIDIR</mat-slide-toggle>
+  </div>
+
+
+  <button mat-raised-button color="primary" (click)="Enviar()" class="full">CALCULAR</button>
+  <!-- </form> -->
+  <div class="respuesta">{{respuesta}}</div>
+</section>
+
+
+
+
+
+<style>
+  .full,
+  .full>* {
+    width: 100%;
+  }
+
+  .respuesta {
+    /* max-width: 13ch; */
+    background-color: coral;
+    border-radius: .2rem;
+    padding: 1rem .5rem;
+    margin-top: 2rem;
+  }
+
+  .respuesta:empty {
+    display: none;
+  }
+</style>
